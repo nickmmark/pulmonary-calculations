@@ -25,7 +25,11 @@ Per [Becher _et al_](https://doi.org/10.1007/s00134-019-05636-8):
 MP_{{{\text{PCV}}({\text{slope}})}} = 0.098 \cdot {\text{RR}} \cdot \left[ {(\Delta P_{\text{insp}} + {\text{PEEP}}) \cdot V_{{{\text{T}} }} {-} \Delta P_{\text{insp}}^{2} \cdot C \cdot \left( {0.5 {-} \frac{R \cdot C}{{T_{\text{slope}} }} + \left( {\frac{R \cdot C}{{T_{\text{slope}} }}} \right)^{2} \cdot \left( {1 {-} {\text{e}}^{{\frac{{ - T_{\text{slope}} }}{R \cdot C}}} } \right)} \right)} \right],
 ```
 
-This can be simplified
+As explained in the supplement, this can be simplified:
+```math
+MP = 0.098 x RR X \Delta V x (P_{peak} - \frac{1}{2} x \Delta P_{aw}
+```
+
 𝐸𝑏𝑟𝑒𝑎𝑡ℎ = ∆𝑉2 ∙𝐸𝐿𝑟𝑠 ∙ 1 2 +∆𝑉∙(𝑃𝑝𝑒𝑎𝑘 −𝑃𝑝𝑙𝑎𝑡)+ ∆𝑉 ∙𝑃𝐸𝐸𝑃
 Knowing that ELrs=∆Paw/∆V, the equation can be rewritten as follows: 𝐸𝑏𝑟𝑒𝑎𝑡ℎ = ∆𝑉 ∙ (1 2 ∙ ∆𝑃𝑎𝑤 +𝑃𝑝𝑒𝑎𝑘 −𝑃𝑝𝑙𝑎𝑡 +𝑃𝐸𝐸𝑃)
 Where ∆Paw=Pplat–PEEP. 
