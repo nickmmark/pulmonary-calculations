@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving Pressure and Mechanical Power Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="number"], select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9f7df;
+            border: 1px solid #a8d08d;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .guidance {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+        }
+        .alert {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #b71c1c;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Driving Pressure and Mechanical Power Calculator</h2>
+
+        <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+            <button id="vcvButton" onclick="setMode('vcv')" style="flex: 1; margin-right: 5px; background-color: #007BFF; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Volume Control Ventilation (VCV)</button>
+            <button id="pcvButton" onclick="setMode('pcv')" style="flex: 1; margin-left: 5px; background-color: #ccc; color: black; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Pressure Control Ventilation (PCV)</button>
+        </div>
+
+        <label for="rr">Respiratory Rate (RR):</label>
+        <input type="number" id="rr" placeholder="Enter Respiratory Rate (breaths/minute)">
+
+        <label for="tv">Tidal Volume (TV):</label>
+        <input type="number" id="tv" placeholder="Enter Tidal Volume (mL)">
+
+        <label for="pip" id="pipLabel">Peak Inspiratory Pressure (PIP):</label>
+        <input type="number" id="pip" placeholder="Enter Peak Inspiratory Pressure (cmH2O)">
+
+        <label for="pplat" id="pplatLabel">Plateau Pressure (Pplat):</label>
+        <input type="number" id="pplat" placeholder="Enter Plateau Pressure (cmH2O)">
+
+        <label for="peep">Positive End Expiratory Pressure (PEEP):</label>
+        <input type="number" id="peep" placeholder="Enter PEEP (cmH2O)">
+
+        <button onclick="calculateResults()">Calculate Mechanical Power and Driving Pressure</button>
+
+        <div id="result" class="result" style="display: none;"></div>
+        <div id="drivingPressureResult" class="result" style="display: none;"></div>
+        <div id="alertMessages" class="alert" style="display: none;"></div>
+    </div>
+
+    <script>
+    function setMode(mode) {
+        const vcvButton = document.getElementById('vcvButton');
+        const pcvButton = document.getElementById('pcvButton');
+        const pipLabel = document.getElementById('pipLabel');
+
+        if (mode === 'vcv') {
+            vcvButton.style.backgroundColor = '#007BFF';
+            vcvButton.style.color = 'white';
+            pcvButton.style.backgroundColor = '#ccc';
+            pcvButton.style.color = 'black';
+            pipLabel.textContent = 'Peak Inspiratory Pressure (PIP):';
+        } else if (mode === 'pcv') {
+            pcvButton.style.backgroundColor = '#007BFF';
+            pcvButton.style.color = 'white';
+            vcvButton.style.backgroundColor = '#ccc';
+            vcvButton.style.color = 'black';
+            pipLabel.textContent = 'Inspiratory Pressure (IP):';
+        }
+
+        window.selectedMode = mode;
+    }
+
+    function calculateResults() {
+        const rr = parseFloat(document.getElementById('rr').value);
+        const tv = parseFloat(document.getElementById('tv').value);
+        const pip = parseFloat(document.getElementById('pip').value);
+        const pplat = parseFloat(document.getElementById('pplat').value);
+        const peep = parseFloat(document.getElementById('peep').value);
+
+        if (isNaN(rr) || isNaN(tv) || isNaN(pip) || isNaN(peep)) {
+            alert('Please enter valid numbers for all required fields.');
+            return;
+        }
+
+        let mechanicalPower;
+
+        if (window.selectedMode === 'vcv') {
+            if (isNaN(pplat)) {
+                alert('Please enter a valid Plateau Pressure for VCV mode.');
+                return;
+            }
+            mechanicalPower = (0.098 * rr * (tv / 1000) * (pip - (0.5 * (pplat - peep))));
+        } else {
+            mechanicalPower = (0.098 * rr * (tv / 1000) * (pip + peep));
+        }
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'block';
+        resultDiv.textContent = `Mechanical Power: ${mechanicalPower.toFixed(2)} Joules/minute`;
+
+        if (!isNaN(pplat)) {
+            const drivingPressure = pplat - peep;
+            const drivingPressureResultDiv = document.getElementById('drivingPressureResult');
+            drivingPressureResultDiv.style.display = 'block';
+            drivingPressureResultDiv.textContent = `Driving Pressure: ${drivingPressure.toFixed(1)} cmH2O`;
+
+            const alertMessagesDiv = document.getElementById('alertMessages');
+            let alertMessages = '';
+
+            if (drivingPressure >= 15) {
+                alertMessages += 'Driving Pressures (∆P) greater than 15 cmH2O is associated with worse clinical outcomes, including mortality. A ∆P less than 13 cmH2O may be associated with improved outcomes.<br>';
+            }
+
+            if (mechanicalPower >= 17) {
+                alertMessages += 'Mechanical Power (MP) greater than 17 Joules/minute is associated with worse clinical outcomes including mortality.';
+            }
+
+            if (alertMessages) {
+                alertMessagesDiv.style.display = 'block';
+                alertMessagesDiv.innerHTML = alertMessages;
+            } else {
+                alertMessagesDiv.style.display = 'none';
+            }
+        }
+    }
+    </script>
+</body>
+</html>
