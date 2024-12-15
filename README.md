@@ -9,6 +9,8 @@
 
 A [common misconception](https://journals.aboutscience.eu/index.php/aboutopen/article/view/297/275) is that Pplat is the same as the inspiratory pressure during pressure control ventilation. This is untrue however. The Inspiratory pressure (IP) is the same as a the peak inspiratory pressure (PIP) in PC. The IP/PIP is always going to be (at least slighly) greater than Pplat because it represents the sum of airway resistance and lung compliance.
 
+### Threshold
+
 
 ## Mechanical Power
 Ventilator induced lung injury (VILI) is more likely to occur if more energy is transfered to the lung from the mechanical ventilator.
@@ -45,7 +47,10 @@ MP = 0.098 \cdot RR \cdot V_T \cdot (\Delta P_{insp} + PEEP )
 ```
 Thus for patients on pressure control ventilation we only need four parameters to calculate MP: `RR`, `TV`, `Inspiratory Pressure (IP)`, and `PEEP`.
 
-### Calculator
+### Threshold
+
+
+## Mechanical Power and Driving Pressure Calculator
 We can implement a simple web-based calculator that allows the user to select the ventilator mode (Volume Control or Pressure Control) and enter the requisite 4 or 5 ventilator parameters.
 
 
