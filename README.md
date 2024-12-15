@@ -51,7 +51,7 @@ Thus for patients on pressure control ventilation we only need four parameters t
 
 
 ## Mechanical Power and Driving Pressure Calculator
-We can implement a simple web-based calculator that allows the user to select the ventilator mode (Volume Control or Pressure Control) and enter the requisite 4 or 5 ventilator parameters.
+We can implement a simple web-based calculator that allows the user to select the ventilator mode (Volume Control or Pressure Control) and enter the requisite 4 or 5 ventilator parameters. For simplicity, I will combine MP and ∆P into one calculator.
 
 
 ## References
