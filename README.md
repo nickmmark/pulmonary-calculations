@@ -1,5 +1,7 @@
 # pulmonary-calculations
 
+
+
 ## Driving Pressure
 **Driving pressure (∆P)** in the lung refers to the pressure difference between the plateau pressure (Pplat) - the pressure at full lung inflation and the positive end-expiratory pressure (PEEP), representing the force that drives air into the lungs during each breath. Driving pressure is a key indicator of lung strain, particularly in patients with conditions like acute respiratory distress syndrome (ARDS) where lung compliance is significantly reduced & maintaining a lower driving pressure is associated with improved outcomes.
 
@@ -10,7 +12,7 @@
 A [common misconception](https://journals.aboutscience.eu/index.php/aboutopen/article/view/297/275) is that Pplat is the same as the inspiratory pressure during pressure control ventilation. This is untrue however. The Inspiratory pressure (IP) is the same as a the peak inspiratory pressure (PIP) in PC. The IP/PIP is always going to be (at least slighly) greater than Pplat because it represents the sum of airway resistance and lung compliance.
 
 ### Threshold
-
+There is some controversy about the optimal cutoff value for driving pressure. A Driving Pressure greater than 15 cmH2O is clearly associated with worse outcomes including mortality, however a threshold of 13 cmH2O may be a better goal.
 
 ## Mechanical Power
 Ventilator induced lung injury (VILI) is more likely to occur if more energy is transfered to the lung from the mechanical ventilator.
