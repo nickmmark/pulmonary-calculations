@@ -13,7 +13,7 @@ Ventilator induced lung injury (VILI) is more likely to occur if more energy is 
 Mechanical power (MP) attempts to unify all the ways that energy can be transfered to the lung, using the [equation of motion](https://pubmed.ncbi.nlm.nih.gov/15436363/).
 The formula depends on the mode of ventilation, however conceptually we can think of mechanical power as the area under the pressure volume curve (work) multiplied by the respiratory rate.
 
-![]()
+![](https://github.com/nickmmark/pulmonary-calculations/blob/main/Mechanical%20Power.png)
 
 ### Mechanical Power in Volume Control (VC) Ventilation
 
