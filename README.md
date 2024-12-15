@@ -25,6 +25,14 @@ Per [Becher _et al_](https://doi.org/10.1007/s00134-019-05636-8):
 MP_{{{\text{PCV}}({\text{slope}})}} = 0.098 \cdot {\text{RR}} \cdot \left[ {(\Delta P_{\text{insp}} + {\text{PEEP}}) \cdot V_{{{\text{T}} }} {-} \Delta P_{\text{insp}}^{2} \cdot C \cdot \left( {0.5 {-} \frac{R \cdot C}{{T_{\text{slope}} }} + \left( {\frac{R \cdot C}{{T_{\text{slope}} }}} \right)^{2} \cdot \left( {1 {-} {\text{e}}^{{\frac{{ - T_{\text{slope}} }}{R \cdot C}}} } \right)} \right)} \right],
 ```
 
+This can be simplified
+𝐸𝑏𝑟𝑒𝑎𝑡ℎ = ∆𝑉2 ∙𝐸𝐿𝑟𝑠 ∙ 1 2 +∆𝑉∙(𝑃𝑝𝑒𝑎𝑘 −𝑃𝑝𝑙𝑎𝑡)+ ∆𝑉 ∙𝑃𝐸𝐸𝑃
+Knowing that ELrs=∆Paw/∆V, the equation can be rewritten as follows: 𝐸𝑏𝑟𝑒𝑎𝑡ℎ = ∆𝑉 ∙ (1 2 ∙ ∆𝑃𝑎𝑤 +𝑃𝑝𝑒𝑎𝑘 −𝑃𝑝𝑙𝑎𝑡 +𝑃𝐸𝐸𝑃)
+Where ∆Paw=Pplat–PEEP. 
+Accordingly: 𝐸𝑏𝑟𝑒𝑎𝑡ℎ = ∆𝑉 ∙ [𝑃𝑝𝑒𝑎𝑘 −1 2 Or: 𝐸𝑏𝑟𝑒𝑎𝑡ℎ = ∆𝑉 ∙ (𝑃𝑝𝑒𝑎𝑘 − 1 2 So: ∙ (𝑃𝑝𝑙𝑎𝑡 − 𝑃𝐸𝐸𝑃)]     ∙ ∆𝑃𝑎𝑤)       
+𝑃𝑜𝑤𝑒𝑟𝑟𝑠 = 0.098∙𝑅𝑅 ∙∆𝑉 ∙(𝑃𝑝𝑒𝑎𝑘 −1 2 ∙ ∆𝑃𝑎𝑤)  
+
+
 ## References
 Gattinoni, L., Tonetti, T., Cressoni, M. _et al._ **[Ventilator-related causes of lung injury: the mechanical power](https://doi.org/10.1007/s00134-016-4505-2)** _Intensive Care Med_ 2016 
 
