@@ -50,6 +50,10 @@ MP = 0.098 \cdot RR \cdot V_T \cdot (\Delta P_{insp} + PEEP )
 Thus for patients on pressure control ventilation we only need four parameters to calculate MP: `RR`, `TV`, `Inspiratory Pressure (IP)`, and `PEEP`.
 
 ### Threshold
+As with Driving Pressure, the goal and cutoff for Mechanical Power is controversial. There are compelling arguements for several different values as a safe threshold: 12 vs 17 vs 22 J/min. 
+Normal negative pressure breathing generates a mechanical power of about 2.4 J/min.
+Animal studies suggest the ventilator induced lung injury is unlikely if mechanical power is < 12 J/min.
+A [review of MIMIC-III and eICU databases](https://link.springer.com/article/10.1007/s00134-018-5375-6) found that MP > 17 J/min predictive of worse clinical outcomes including ICU mortality, 30-day mortality, ventilator-free days, ICU & hospital length of stay. Even at low tidal volumes, high MP was associated with in-hospital mortality. 
 
 
 ## Mechanical Power and Driving Pressure Calculator
