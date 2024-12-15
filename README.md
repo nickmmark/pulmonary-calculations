@@ -27,12 +27,19 @@ As explained [in the supplement](https://static-content.springer.com/esm/art%3A1
 MP = 0.098 \cdot RR \cdot \Delta V \cdot (P_{peak} - \frac{1}{2} \cdot \Delta P_{aw} )
 ```
 
+(note that 0.098 is a conversion factor )
+
 
 ### Mechanical Power in Pressure Control (PC) Ventilation
 
 Per [Becher _et al_](https://doi.org/10.1007/s00134-019-05636-8):
 ```math
 MP_{{{\text{PCV}}({\text{slope}})}} = 0.098 \cdot {\text{RR}} \cdot \left[ {(\Delta P_{\text{insp}} + {\text{PEEP}}) \cdot V_{{{\text{T}} }} {-} \Delta P_{\text{insp}}^{2} \cdot C \cdot \left( {0.5 {-} \frac{R \cdot C}{{T_{\text{slope}} }} + \left( {\frac{R \cdot C}{{T_{\text{slope}} }}} \right)^{2} \cdot \left( {1 {-} {\text{e}}^{{\frac{{ - T_{\text{slope}} }}{R \cdot C}}} } \right)} \right)} \right],
+```
+
+By assuming that the waveform is square, we can simplify this equation as well and remove the need for slope from the calculation:
+```math
+MP = 0.098 \cdot RR \cdot V_T \cdot (\Delta P_{insp} + PEEP )
 ```
 
 
