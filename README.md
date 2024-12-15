@@ -43,6 +43,10 @@ MP = 0.098 \cdot RR \cdot V_T \cdot (\Delta P_{insp} + PEEP )
 ```
 Thus for patients on pressure control ventilation we only need four parameters to calculate MP: `RR`, `TV`, `Inspiratory Pressure (IP)`, and `PEEP`.
 
+### Calculator
+We can implement a simple web-based calculator that allows the user to select the ventilator mode (Volume Control or Pressure Control) and enter the requisite 4 or 5 ventilator parameters.
+
+
 ## References
 - Otis AB, Fenn WO, Rahn H. **[Mechanics of breathing in man](10.1152/jappl.1950.2.11.592)** _J Appl Physiol_ 1950
 - Gattinoni, L., Tonetti, T., Cressoni, M. _et al._ **[Ventilator-related causes of lung injury: the mechanical power](https://doi.org/10.1007/s00134-016-4505-2)** _Intensive Care Med_ 2016 
