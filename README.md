@@ -57,7 +57,9 @@ A [review of MIMIC-III and eICU databases](https://link.springer.com/article/10.
 
 
 ## Mechanical Power and Driving Pressure Calculator
-We can implement a simple web-based calculator that allows the user to select the ventilator mode (Volume Control or Pressure Control) and enter the requisite 4 or 5 ventilator parameters. For simplicity, I will combine MP and ∆P into one calculator.
+We can implement a simple web-based calculator that allows the user to select the ventilator mode (Volume Control or Pressure Control) and enter the requisite ventilator parameters. For simplicity, I combined MP and ∆P into one calculator. (This makes Plateau Pressure required even in PCV mode)
+
+![](https://github.com/nickmmark/pulmonary-calculations/blob/main/mechanical_power_demo2.gif)
 
 
 ## References
