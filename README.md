@@ -27,7 +27,7 @@ MP_{{{\text{PCV}}({\text{slope}})}} = 0.098 \cdot {\text{RR}} \cdot \left[ {(\De
 
 As explained in the supplement, this can be simplified:
 ```math
-MP = 0.098 \cdot RR \cdot \Delta V \cdot (P_{peak} - \frac{1}{2} \cdot \Delta P_{aw}
+MP = 0.098 \cdot RR \cdot \Delta V \cdot (P_{peak} - \frac{1}{2} \cdot \Delta P_{aw} )
 ```
 
 𝐸𝑏𝑟𝑒𝑎𝑡ℎ = ∆𝑉2 ∙𝐸𝐿𝑟𝑠 ∙ 1 2 +∆𝑉∙(𝑃𝑝𝑒𝑎𝑘 −𝑃𝑝𝑙𝑎𝑡)+ ∆𝑉 ∙𝑃𝐸𝐸𝑃
