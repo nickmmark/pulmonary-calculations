@@ -27,7 +27,7 @@ As explained [in the supplement](https://static-content.springer.com/esm/art%3A1
 MP = 0.098 \cdot RR \cdot \Delta V \cdot (P_{peak} - \frac{1}{2} \cdot \Delta P_{aw} )
 ```
 
-(note that 0.098 is a conversion factor )
+(note that 0.098 is a conversion factor to go from cmH2O*mL/min to Joules/min)
 
 
 ### Mechanical Power in Pressure Control (PC) Ventilation
