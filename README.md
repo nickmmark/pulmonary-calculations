@@ -60,6 +60,8 @@ A [review of MIMIC-III and eICU databases](https://link.springer.com/article/10.
 We can implement a simple web-based calculator that allows the user to select the ventilator mode (Volume Control or Pressure Control) and enter the requisite ventilator parameters. For simplicity, I combined MP and ∆P into one calculator. (This makes Plateau Pressure required even in PCV mode)
 
 Probably the most controversial aspect of this calculator is the comments added to the results. Could argue endlessly about what exact thresholds to use and what the `alertMessage` should say.
+
+
 ![](https://github.com/nickmmark/pulmonary-calculations/blob/main/mechanical_power_demo2.gif)
 
 ```HTML
