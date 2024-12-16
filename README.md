@@ -1,5 +1,7 @@
 # pulmonary-calculations
 
+![](https://github.com/nickmmark/pulmonary-calculations/blob/main/mechanical_power_demo1.gif)
+
 ## Driving Pressure
 **Driving pressure (∆P)** in the lung refers to the pressure difference between the plateau pressure (Pplat) - the pressure at full lung inflation and the positive end-expiratory pressure (PEEP), representing the force that drives air into the lungs during each breath. Driving pressure is a key indicator of lung strain, particularly in patients with conditions like acute respiratory distress syndrome (ARDS) where lung compliance is significantly reduced & maintaining a lower driving pressure is associated with improved outcomes.
 
@@ -57,9 +59,7 @@ A [review of MIMIC-III and eICU databases](https://link.springer.com/article/10.
 ## Mechanical Power and Driving Pressure Calculator
 We can implement a simple web-based calculator that allows the user to select the ventilator mode (Volume Control or Pressure Control) and enter the requisite ventilator parameters. For simplicity, I combined MP and ∆P into one calculator. (This makes Plateau Pressure required even in PCV mode)
 
-![](https://github.com/nickmmark/pulmonary-calculations/blob/main/mechanical_power_demo1.gif)
-
-Probably the most controversial aspect of this calculator is the comments added to the results.
+Probably the most controversial aspect of this calculator is the comments added to the results. Could argue endlessly about what exact thresholds to use and what the `alertMessage` should say.
 ![](https://github.com/nickmmark/pulmonary-calculations/blob/main/mechanical_power_demo2.gif)
 
 ```HTML
