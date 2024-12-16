@@ -64,6 +64,15 @@ We can implement a simple web-based calculator that allows the user to select th
 Probably the most controversial aspect of this calculator is the comments added to the results.
 ![](https://github.com/nickmmark/pulmonary-calculations/blob/main/mechanical_power_demo2.gif)
 
+```
+            if (drivingPressure >= 15) {
+                alertMessages += 'Driving Pressure (∆P) greater than 15 cmH2O is associated with worse clinical outcomes, including mortality. A ∆P less than 13 cmH2O may be associated with improved outcomes.<br>';
+            }
+
+            if (mechanicalPower >= 17) {
+                alertMessages += 'Mechanical Power (MP) greater than 17 Joules/minute is associated with worse clinical outcomes including mortality.';
+            }
+```
 
 ## References
 - Otis AB, Fenn WO, Rahn H. **[Mechanics of breathing in man](10.1152/jappl.1950.2.11.592)** _J Appl Physiol_ 1950
