@@ -1,7 +1,5 @@
 # pulmonary-calculations
 
-
-
 ## Driving Pressure
 **Driving pressure (∆P)** in the lung refers to the pressure difference between the plateau pressure (Pplat) - the pressure at full lung inflation and the positive end-expiratory pressure (PEEP), representing the force that drives air into the lungs during each breath. Driving pressure is a key indicator of lung strain, particularly in patients with conditions like acute respiratory distress syndrome (ARDS) where lung compliance is significantly reduced & maintaining a lower driving pressure is associated with improved outcomes.
 
@@ -74,7 +72,7 @@ if (mechanicalPower >= 17) {
 }
 ```
 
-### Disclaimer
+## Disclaimer
 This code is provided "as is", without warranty of any kind. Double check any calculations. See the attached license for more information about the MIT License.
 
 ## References
