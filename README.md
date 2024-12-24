@@ -25,12 +25,12 @@ The formula depends on the mode of ventilation, however conceptually we can thin
 
 Per [Gattinoni _et al_](https://doi.org/10.1007/s00134-016-4505-2):
 ```math
-{\text{Power}}_{\text{rs}} = {\text{RR}} \cdot \left\{ {\Delta V^{2} \cdot \left[ {\frac{1}{2} \cdot {\text{EL}}_{\text{rs}} + {\text{RR}} \cdot \frac{{\left( {1 + I:E} \right)}}{60 \cdot I:E} \cdot R_{\text{aw}} } \right] + \Delta V \cdot {\text{PEEP}}} \right\},
+MP_{VCV} = {\text{RR}} \cdot \left\{ {\Delta V^{2} \cdot \left[ {\frac{1}{2} \cdot {\text{EL}}_{\text{rs}} + {\text{RR}} \cdot \frac{{\left( {1 + I:E} \right)}}{60 \cdot I:E} \cdot R_{\text{aw}} } \right] + \Delta V \cdot {\text{PEEP}}} \right\},
 ```
 
 As explained [in the supplement](https://static-content.springer.com/esm/art%3A10.1007%2Fs00134-016-4505-2/MediaObjects/134_2016_4505_MOESM1_ESM.pdf), this can be simplified:
 ```math
-Power_{VCV} = 0.098 \cdot RR \cdot \Delta V \cdot (P_{peak} - \frac{1}{2} \cdot \Delta P )
+MP_{VCV} = 0.098 \cdot RR \cdot \Delta V \cdot (P_{peak} - \frac{1}{2} \cdot \Delta P )
 ```
 (note that 0.098 is a conversion factor to go from cmH2O*mL/min to Joules/min)
 Thus for patients on volume control ventilation we only need five parameters to calculate MP: `Respiratory Rate (RR)`, `Tidal volume (TV)`, `Peak Inspiratory Pressure (PIP)`, `Plateau Pressure (Pplat)`, and `PEEP`.
