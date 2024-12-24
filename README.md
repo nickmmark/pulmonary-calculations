@@ -21,7 +21,7 @@ The formula depends on the mode of ventilation, however conceptually we can thin
 
 ![](https://github.com/nickmmark/pulmonary-calculations/blob/main/Mechanical%20Power.png)
 
-### Mechanical Power in Volume Control (VC) Ventilation
+### Mechanical Power in Volume Control Ventilation (VCV) 
 
 Per [Gattinoni _et al_](https://doi.org/10.1007/s00134-016-4505-2):
 ```math
@@ -36,7 +36,7 @@ Power_{VCV} = 0.098 \cdot RR \cdot \Delta V \cdot (P_{peak} - \frac{1}{2} \cdot 
 Thus for patients on volume control ventilation we only need five parameters to calculate MP: `Respiratory Rate (RR)`, `Tidal volume (TV)`, `Peak Inspiratory Pressure (PIP)`, `Plateau Pressure (Pplat)`, and `PEEP`.
 
 
-### Mechanical Power in Pressure Control (PC) Ventilation
+### Mechanical Power in Pressure Control Ventilation (PCV) 
 
 Per [Becher _et al_](https://doi.org/10.1007/s00134-019-05636-8):
 ```math
@@ -45,7 +45,7 @@ MP_{{{\text{PCV}}({\text{slope}})}} = 0.098 \cdot {\text{RR}} \cdot \left[ {(\De
 
 By assuming that the waveform is square, we can simplify this equation as well and remove the need for slope from the calculation:
 ```math
-MP = 0.098 \cdot RR \cdot V_T \cdot (\Delta P_{insp} + PEEP )
+MP_{PCV} = 0.098 \cdot RR \cdot V_T \cdot (\Delta P_{insp} + PEEP )
 ```
 Thus for patients on pressure control ventilation we only need four parameters to calculate MP: `RR`, `TV`, `Inspiratory Pressure (IP)`, and `PEEP`.
 
