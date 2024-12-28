@@ -76,9 +76,9 @@ if (mechanicalPower >= 17) {
 
 ## RESP Score
 The Respiratory Extracorporeal Membrane Oxygenation Survival Prediction (RESP) score is a tool used to predicts survival for patients undergoing ECMO for respiratory failure.
-The score was developed using a retrospective cohort analsis of n=2,355 patients in the ELSO Registry. Note that patients undergoing ECMO for non-respiratory indications (e.g. cardiogenic shock, cardiac arrest, post-surgical, etc) were not included in this cohort.
+The score was [developed using a retrospective cohort analsis of n=2,355 patients in the ELSO Registry](https://doi.org/10.1164/rccm.201311-2023OC). Note that patients undergoing ECMO for non-respiratory indications (e.g. cardiogenic shock, cardiac arrest, post-surgical, etc) were not included in this cohort.
 
-The Score has 12 factors
+The RESP Score has 12 factors used to calculate points.
 | Parameter | Value | Points |
 |---|---|---|
 | Age, years | 18-49 | 0 |
@@ -113,6 +113,14 @@ The Score has 12 factors
 | Peak inspiratory pressure ≥42 cm H₂O (≥4.1 kPa) | No | 0 |
 |  | Yes | -1 |
 
+The total number of points is used to compute a risk category, each of which has a risk of in-hospital mortality.
+| RESP Score | Risk class | In-hospital survival |
+|---|---|---|
+| ≥6 | I | 92% |
+| 3-5 | II | 76% |
+| -1 to 2 | III | 57% |
+| -5 to -2 | IV | 33% |
+| ≤-6 | V | 18% |
 
 
 
