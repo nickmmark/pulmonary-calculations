@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESP Score Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .factor {
+            margin-bottom: 20px;
+        }
+        .factor-label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: nowrap;
+        }
+        .button {
+            flex: 1 1 calc(50% - 10px);
+            padding: 8px;
+            text-align: center;
+            background-color: #ccc;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .button.selected {
+            background-color: #007BFF;
+            color: white;
+        }
+        button.calculate {
+            width: 100%;
+            padding: 12px;
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        button.calculate:hover {
+            background-color: #cc0000;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9f7df;
+            border: 1px solid #a8d08d;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>RESP Score Calculator</h2>
+        <p>The <a href='https://pubmed.ncbi.nlm.nih.gov/24693864/' target='_blank'>RESP score</a> is used to calculate expected in-hospital mortality in patients undergoing ECMO for respiratory failure (e.g. VV-ECMO). Patients with non-respiratory indications (e.g. cardiogenic shock) were excluded from the cohort used to develop this score.</p>
+
+        <div class="factor" id="age">
+            <div class="factor-label">Age, years:</div>
+            <div class="button-group">
+                <div class="button" onclick="selectOption('age', 0, this)">18-49 (0)</div>
+                <div class="button" onclick="selectOption('age', -2, this)">50-59 (-2)</div>
+                <div class="button" onclick="selectOption('age', -3, this)">≥60 (-3)</div>
+            </div>
+        </div>
+
+        <div class="factor" id="immunocompromised">
+            <div class="factor-label">Immunocompromised status:</div>
+            <div class="button-group">
+                <div class="button" onclick="selectOption('immunocompromised', 0, this)">No (0)</div>
+                <div class="button" onclick="selectOption('immunocompromised', -2, this)">Yes (-2)</div>
+            </div>
+        </div>
+
+        <div class="factor" id="ventilation">
+            <div class="factor-label">Mechanically ventilated before ECMO:</div>
+            <div class="button-group">
+                <div class="button" onclick="selectOption('ventilation', 0, this)">>7 days (0)</div>
+                <div class="button" onclick="selectOption('ventilation', 1, this)">48 hours to 7 days (1)</div>
+                <div class="button" onclick="selectOption('ventilation', 3, this)"><48 hours (3)</div>
+            </div>
+        </div>
+
+        <div class="factor" id="diagnosis">
+            <div class="factor-label">Diagnosis:</div>
+            <div class="button-group" style="flex-wrap: wrap;">
+                <div class="button" onclick="selectOption('diagnosis', 3, this)">Viral pneumonia (3)</div>
+                <div class="button" onclick="selectOption('diagnosis', 3, this)">Bacterial pneumonia (3)</div>
+                <div class="button" onclick="selectOption('diagnosis', 11, this)">Asthma (11)</div>
+                <div class="button" onclick="selectOption('diagnosis', 3, this)">Trauma or burn (3)</div>
+                <div class="button" onclick="selectOption('diagnosis', 5, this)">Aspiration pneumonitis (5)</div>
+                <div class="button" onclick="selectOption('diagnosis', 1, this)">Other acute respiratory (1)</div>
+                <div class="button" onclick="selectOption('diagnosis', 0, this)">Nonrespiratory or chronic (0)</div>
+            </div>
+        </div>
+
+        <div class="factor" id="cns">
+            <div class="factor-label">History of central nervous system dysfunction:</div>
+            <div class="button-group">
+                <div class="button" onclick="selectOption('cns', 0, this)">No (0)</div>
+                <div class="button" onclick="selectOption('cns', -7, this)">Yes (-7)</div>
+            </div>
+        </div>
+
+        <div class="factor" id="infection">
+            <div class="factor-label">Acute associated nonpulmonary infection:</div>
+            <div class="button-group">
+                <div class="button" onclick="selectOption('infection', 0, this)">No (0)</div>
+                <div class="button" onclick="selectOption('infection', -3, this)">Yes (-3)</div>
+            </div>
+        </div>
+
+        <div class="factor" id="nm_blockade">
+            <div class="factor-label">Neuromuscular blockade before ECMO:</div>
+            <div class="button-group">
+                <div class="button" onclick="selectOption('nm_blockade', 0, this)">No (0)</div>
+                <div class="button" onclick="selectOption('nm_blockade', 1, this)">Yes (1)</div>
+            </div>
+        </div>
+
+        <div class="factor" id="nitric_oxide">
+            <div class="factor-label">Nitric oxide before ECMO:</div>
+            <div class="button-group">
+                <div class="button" onclick="selectOption('nitric_oxide', 0, this)">No (0)</div>
+                <div class="button" onclick="selectOption('nitric_oxide', -1, this)">Yes (-1)</div>
+            </div>
+        </div>
+
+        <div class="factor" id="bicarbonate">
+            <div class="factor-label">Bicarbonate infusion before ECMO:</div>
+            <div class="button-group">
+                <div class="button" onclick="selectOption('bicarbonate', 0, this)">No (0)</div>
+                <div class="button" onclick="selectOption('bicarbonate', -2, this)">Yes (-2)</div>
+            </div>
+        </div>
+
+        <div class="factor" id="cardiac_arrest">
+            <div class="factor-label">Cardiac arrest before ECMO:</div>
+            <div class="button-group">
+                <div class="button" onclick="selectOption('cardiac_arrest', 0, this)">No (0)</div>
+                <div class="button" onclick="selectOption('cardiac_arrest', -2, this)">Yes (-2)</div>
+            </div>
+        </div>
+
+        <div class="factor" id="paco2">
+            <div class="factor-label">PaCO₂ ≥75 mmHg:</div>
+            <div class="button-group">
+                <div class="button" onclick="selectOption('paco2', 0, this)">No (0)</div>
+                <div class="button" onclick="selectOption('paco2', -1, this)">Yes (-1)</div>
+            </div>
+        </div>
+
+        <div class="factor" id="pip">
+            <div class="factor-label">Peak inspiratory pressure ≥42 cm H₂O:</div>
+            <div class="button-group">
+                <div class="button" onclick="selectOption('pip', 0, this)">No (0)</div>
+                <div class="button" onclick="selectOption('pip', -1, this)">Yes (-1)</div>
+            </div>
+        </div>
+
+        <button class="calculate" onclick="calculateRESPScore()">Calculate RESP Score</button>
+
+        <div id="result" class="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        const selectedValues = {};
+
+        function selectOption(factor, value, element) {
+            // Store the selected value
+            selectedValues[factor] = value;
+
+            // Deselect other buttons in the same group
+            const buttons = element.parentElement.querySelectorAll('.button');
+            buttons.forEach(button => button.classList.remove('selected'));
+
+            // Highlight the selected button
+            element.classList.add('selected');
+        }
+
+        function calculateRESPScore() {
+            let score = 0;
+            for (const factor in selectedValues) {
+                score += selectedValues[factor];
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            let riskClass = '';
+            let survival = '';
+
+            if (score >= 6) {
+                riskClass = 'I';
+                survival = '92%';
+            } else if (score >= 3) {
+                riskClass = 'II';
+                survival = '76%';
+            } else if (score >= -1) {
+                riskClass = 'III';
+                survival = '57%';
+            } else if (score >= -5) {
+                riskClass = 'IV';
+                survival = '33%';
+            } else {
+                riskClass = 'V';
+                survival = '18%';
+            }
+
+            resultDiv.innerHTML = `RESP Score: ${score}<br>Risk Class: ${riskClass}<br>In-hospital Survival: ${survival}`;
+        }
+    </script>
+</body>
+</html>
+
+
