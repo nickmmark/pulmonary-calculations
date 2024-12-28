@@ -113,7 +113,7 @@ The RESP Score has 12 factors used to calculate points.
 | Peak inspiratory pressure ≥42 cm H₂O (≥4.1 kPa) | No | 0 |
 |  | Yes | -1 |
 
-The total number of points is used to compute a risk category, each of which has a risk of in-hospital mortality.
+Lower scores are associated with a worse prognosis. The total number of points is used to compute a risk category, each of which has a risk of in-hospital mortality, ranging from 18% to 92%.
 | RESP Score | Risk class | In-hospital survival |
 |---|---|---|
 | ≥6 | I | 92% |
