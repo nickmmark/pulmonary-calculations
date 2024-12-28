@@ -125,7 +125,7 @@ The total number of points is used to compute a risk category, each of which has
 
 
 ## Disclaimer
-This code is provided "as is", without warranty of any kind. Double check any calculations. See the attached license for more information about the MIT License.
+This code is provided "as is", without warranty of any kind. Double check any calculations. Consult a medical professional if necessary. See the attached license for more information about the MIT License.
 
 ## References
 - Otis AB, Fenn WO, Rahn H. **[Mechanics of breathing in man](10.1152/jappl.1950.2.11.592)** _J Appl Physiol_ 1950
