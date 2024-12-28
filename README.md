@@ -56,7 +56,7 @@ Animal studies suggest the ventilator induced lung injury is unlikely if mechani
 A [review of MIMIC-III and eICU databases](https://link.springer.com/article/10.1007/s00134-018-5375-6) found that MP > 17 J/min predictive of worse clinical outcomes including ICU mortality, 30-day mortality, ventilator-free days, ICU & hospital length of stay. Even at low tidal volumes, high MP was associated with in-hospital mortality. 
 
 
-## Mechanical Power and Driving Pressure Calculator
+### Mechanical Power and Driving Pressure Calculator
 We can implement a simple web-based calculator that allows the user to select the ventilator mode (Volume Control or Pressure Control) and enter the requisite ventilator parameters. For simplicity, I combined MP and ∆P into one calculator. (This makes Plateau Pressure required even in PCV mode)
 
 Probably the most controversial aspect of this calculator is the comments added to the results. Could argue endlessly about what exact thresholds to use and what the `alertMessage` should say.
@@ -74,10 +74,53 @@ if (mechanicalPower >= 17) {
 }
 ```
 
+## RESP Score
+The Respiratory Extracorporeal Membrane Oxygenation Survival Prediction (RESP) score is a tool used to predicts survival for patients undergoing ECMO for respiratory failure.
+The score was developed using a retrospective cohort analsis of n=2,355 patients in the ELSO Registry. Note that patients undergoing ECMO for non-respiratory indications (e.g. cardiogenic shock, cardiac arrest, post-surgical, etc) were not included in this cohort.
+
+The Score has 12 factors
+| Parameter | Value | Points |
+|---|---|---|
+| Age, years | 18-49 | 0 |
+|  | 50-59 | -2 |
+|  | ≥60 | -3 |
+| Immunocompromised status at time of ECMO (any malignancy, solid organ transplant, HIV, or cirrhosis) | No | 0 |
+|  | Yes | -2 |
+| Mechanically ventilated before ECMO | >7 days | 0 |
+|  | 48 hours to 7 days | 1 |
+|  | <48 hours | 3 |
+| Diagnosis | Viral pneumonia | 3 |
+|  | Bacterial pneumonia | 3 |
+|  | Asthma | 11 |
+|  | Trauma or burn | 3 |
+|  | Aspiration pneumonitis | 5 |
+|  | Other acute respiratory diagnosis | 1 |
+|  | Nonrespiratory or chronic respiratory diagnosis | 0 |
+| History of central nervous system dysfunction (neurotrauma, stroke, encephalopathy, cerebral embolism, or seizure/epilepsy) | No | 0 |
+|  | Yes | -7 |
+| Acute associated nonpulmonary infection (any other bacterial, viral, parasitic, or fungal infection not involving the lung) | No | 0 |
+|  | Yes | -3 |
+| Neuromuscular blockade before ECMO | No | 0 |
+|  | Yes | 1 |
+| Nitric oxide before ECMO | No | 0 |
+|  | Yes | -1 |
+| Bicarbonate infusion before ECMO | No | 0 |
+|  | Yes | -2 |
+| Cardiac arrest before ECMO | No | 0 |
+|  | Yes | -2 |
+| PaCO₂ ≥75 mmHg (≥10 kPa) | No | 0 |
+|  | Yes | -1 |
+| Peak inspiratory pressure ≥42 cm H₂O (≥4.1 kPa) | No | 0 |
+|  | Yes | -1 |
+
+
+
+
 ## Disclaimer
 This code is provided "as is", without warranty of any kind. Double check any calculations. See the attached license for more information about the MIT License.
 
 ## References
 - Otis AB, Fenn WO, Rahn H. **[Mechanics of breathing in man](10.1152/jappl.1950.2.11.592)** _J Appl Physiol_ 1950
 - Gattinoni, L., Tonetti, T., Cressoni, M. _et al._ **[Ventilator-related causes of lung injury: the mechanical power](https://doi.org/10.1007/s00134-016-4505-2)** _Intensive Care Med_ 2016 
-- Becher, T., van der Staay, M., Schädler, D. _et al._ **[Calculation of mechanical power for pressure-controlled ventilation.](https://doi.org/10.1007/s00134-019-05636-8)** _Intensive Care Med_ 2019 
+- Becher, T., van der Staay, M., Schädler, D. _et al._ **[Calculation of mechanical power for pressure-controlled ventilation.](https://doi.org/10.1007/s00134-019-05636-8)** _Intensive Care Med_ 2019
+- Schmidt M, Bailey M, Sheldrake J, _et al._ **[Predicting survival after extracorporeal membrane oxygenation for severe acute respiratory failure. The Respiratory Extracorporeal Membrane Oxygenation Survival Prediction (RESP) score.](https://www.ncbi.nlm.nih.gov/pubmed/24693864)** _Am J Respir Crit Care Med._ 2014
