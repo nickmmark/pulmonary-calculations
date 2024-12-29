@@ -122,6 +122,10 @@ Lower scores are associated with a worse prognosis. The total number of points i
 | -5 to -2 | IV | 33% |
 | ≤-6 | V | 18% |
 
+### Limitations/Criticisms
+RESP score was developed in a large retrospective cohort, however [subsequent prospective studies]() have not consistently found that RESP score predicts survival, particularly in [cohorts with COVID19]((https://pmc.ncbi.nlm.nih.gov/articles/PMC10472724/#:~:text=Our%20results%20suggest%20the%20RESP,not%20significantly%20associated%20with%20survival.))
+Other studies have found the REST score was predictive of mortality, but [only a modestly good predictor](https://ccforum.biomedcentral.com/articles/10.1186/s13054-017-1888-6). Several other scores -- PRESET, PRESERVE, ECMOnet-SCORE -- have been proposed as alternatives.
+
 
 ## Disclaimer
 This code is provided "as is", without warranty of any kind. Double check any calculations. Consult a medical professional if necessary. See the attached license for more information about the MIT License.
