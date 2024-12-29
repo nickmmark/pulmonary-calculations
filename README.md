@@ -123,7 +123,6 @@ Lower scores are associated with a worse prognosis. The total number of points i
 | ≤-6 | V | 18% |
 
 
-
 ## Disclaimer
 This code is provided "as is", without warranty of any kind. Double check any calculations. Consult a medical professional if necessary. See the attached license for more information about the MIT License.
 
